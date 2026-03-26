@@ -176,8 +176,8 @@ function Toast({ show }) {
             <Check size={13} className="text-white" />
           </div>
           <div>
-            <div className="text-sm font-semibold text-white">Sıraya alındınız!</div>
-            <div className="text-xs text-white/40">Uygulama çıktığında haber vereceğiz.</div>
+            <div className="text-sm font-semibold text-white">You're on the list!</div>
+            <div className="text-xs text-white/40">We'll notify you the moment Apex launches.</div>
           </div>
         </motion.div>
       )}
