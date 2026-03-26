@@ -161,9 +161,34 @@ function Navbar() {
 
 // ─── Hero Section ─────────────────────────────────────────────────────────────
 
+function Toast({ show }) {
+  return (
+    <AnimatePresence>
+      {show && (
+        <motion.div
+          initial={{ opacity: 0, y: 24, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 12, scale: 0.95 }}
+          transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 glass-strong rounded-2xl px-5 py-3.5 border border-apex-cyan/30 shadow-lg shadow-black/40"
+        >
+          <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0" style={{ background: 'linear-gradient(135deg, #00d2d3, #0099ff)' }}>
+            <Check size={13} className="text-white" />
+          </div>
+          <div>
+            <div className="text-sm font-semibold text-white">Sıraya alındınız!</div>
+            <div className="text-xs text-white/40">Uygulama çıktığında haber vereceğiz.</div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  )
+}
+
 function HeroSection() {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const [toast, setToast] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -174,11 +199,15 @@ function HeroSection() {
       body: JSON.stringify({ email }),
     })
     setSubmitted(true)
+    setToast(true)
     setEmail('')
     setTimeout(() => setSubmitted(false), 3000)
+    setTimeout(() => setToast(false), 4000)
   }
 
   return (
+    <>
+    <Toast show={toast} />
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16">
       <Orb className="w-96 h-96 bg-apex-red top-20 -left-20" />
       <Orb className="w-80 h-80 bg-apex-cyan bottom-20 -right-10" style={{ animationDelay: '-4s' }} />
@@ -272,6 +301,7 @@ function HeroSection() {
         </motion.div>
       </div>
     </section>
+    </>
   )
 }
 
