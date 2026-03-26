@@ -165,13 +165,17 @@ function HeroSection() {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    if (email) {
-      setSubmitted(true)
-      setTimeout(() => setSubmitted(false), 3000)
-      setEmail('')
-    }
+    if (!email) return
+    await fetch('https://formspree.io/f/meepogar', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    })
+    setSubmitted(true)
+    setEmail('')
+    setTimeout(() => setSubmitted(false), 3000)
   }
 
   return (
