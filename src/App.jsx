@@ -555,10 +555,9 @@ function FeaturesSection() {
 function PhoneMockup({ src, alt }) {
   return (
     <div
-      className="relative rounded-[2.2rem] overflow-hidden border-2 border-white/10"
+      className="relative rounded-[2.2rem] overflow-hidden"
       style={{
-        background: '#060a14',
-        boxShadow: '0 0 50px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.08)',
+        boxShadow: '0 30px 80px rgba(0,0,0,0.6)',
       }}
     >
       <img src={src} alt={alt} className="w-full block" />
@@ -632,7 +631,7 @@ function SneakPeekSection() {
               className="relative z-10 w-[30%] opacity-75"
               style={{ transform: 'rotate(-5deg) translateY(24px)' }}
             >
-              <PhoneMockup src="/screenshots/IMG_7279.PNG" alt="Analyse & Heat Map" />
+              <PhoneMockup src="/screenshots/analyse.png" alt="Analyse & Heat Map" />
             </motion.div>
 
             {/* Center phone — Home / Dashboard */}
@@ -641,7 +640,7 @@ function SneakPeekSection() {
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               className="relative z-20 w-[38%]"
             >
-              <PhoneMockup src="/screenshots/IMG_7277.PNG" alt="Dashboard" />
+              <PhoneMockup src="/screenshots/homeScreen.png" alt="Dashboard" />
             </motion.div>
 
             {/* Right phone — Apex AI */}
@@ -651,7 +650,7 @@ function SneakPeekSection() {
               className="relative z-10 w-[30%] opacity-75"
               style={{ transform: 'rotate(5deg) translateY(24px)' }}
             >
-              <PhoneMockup src="/screenshots/IMG_7278.PNG" alt="Apex AI Coach" />
+              <PhoneMockup src="/screenshots/AI_screen.png" alt="Apex AI Coach" />
             </motion.div>
           </motion.div>
         </div>
